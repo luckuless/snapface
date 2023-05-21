@@ -1,4 +1,1 @@
-<app-face-snap [faceSnap]="mySnap" *ngIf="mySnap.snaps > 5"></app-face-snap>
-<app-face-snap [faceSnap]="myOtherSnap" *ngIf="myOtherSnap.snaps > 5"></app-face-snap>
-<app-face-snap [faceSnap]="myLastSnap" *ngIf="myLastSnap.snaps > 5"></app-face-snap>
-<app-face-snap [faceSnap]="myHiddenSnap" *ngIf="myHiddenSnap.snaps > 5"></app-face-snap>
+<app-face-snap *ngFor="let faceSnap of faceSnaps" [faceSnap]="faceSnap"></app-face-snap>
