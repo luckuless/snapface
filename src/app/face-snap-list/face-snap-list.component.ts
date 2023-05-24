@@ -10,6 +10,9 @@ import { Observable, Subject, filter, interval, map, take, takeUntil, tap } from
 })
 export class FaceSnapListComponent implements OnInit, OnDestroy {
   faceSnaps!: FaceSnap[];
+
+  faceSnaps$!: Observable<FaceSnap[]>;
+
   private destroy$!: Subject<boolean>;
   interval$!: Observable<string>;
 
@@ -18,7 +21,8 @@ export class FaceSnapListComponent implements OnInit, OnDestroy {
   }
 
   ngOnInit(): void {
-    this.faceSnaps = this.faceSnapsService.faceSnaps;
+    // this.faceSnaps = this.faceSnapsService.faceSnaps;
+    this.faceSnaps$ = this.faceSnapsService.getAllFaceSnaps();
 
     this.destroy$ = new Subject<boolean>();
     // this.subscribeToObservbleRequiresDestroy();
