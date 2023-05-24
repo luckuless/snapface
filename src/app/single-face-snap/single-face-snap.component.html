@@ -6,7 +6,7 @@
     <p *ngIf="faceSnap.location == 'Paris'">Photo prise à {{ faceSnap.location }}</p>
     <a routerLink="/facesnaps">Back</a>
     <p>
-        <button (click)="onSnap()">{{buttonText}}</button>
+        <button (click)="onSnap(faceSnap.id)">{{buttonText}}</button>
         <span [ngStyle]="{ color: 'rgb(255, ' + faceSnap.snaps + ', 0)' }">🤌 {{ faceSnap.snaps }}</span>
     </p>
     <p>{{ 0.336 | percent }}</p>
