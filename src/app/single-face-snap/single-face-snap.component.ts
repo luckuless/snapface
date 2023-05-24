@@ -12,7 +12,6 @@ import { Observable, tap } from 'rxjs';
 export class SingleFaceSnapComponent implements OnInit {
 
 
-  faceSnap!: FaceSnap;
   faceSnap$!: Observable<FaceSnap>;
   buttonText!: string;
 

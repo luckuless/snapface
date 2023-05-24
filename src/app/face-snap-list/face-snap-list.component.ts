@@ -9,7 +9,6 @@ import { Observable, Subject, filter, interval, map, take, takeUntil, tap } from
   styleUrls: ['./face-snap-list.component.scss']
 })
 export class FaceSnapListComponent implements OnInit, OnDestroy {
-  faceSnaps!: FaceSnap[];
 
   faceSnaps$!: Observable<FaceSnap[]>;
 
