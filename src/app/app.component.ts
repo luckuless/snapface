@@ -14,7 +14,7 @@ export class AppComponent implements OnInit {
 
   ngOnInit() {
     // this.observableBasNiveau();
-    this.observableHauteNiveau();
+    // this.observableHauteNiveau();
   }
 
   observableBasNiveau(): void {
