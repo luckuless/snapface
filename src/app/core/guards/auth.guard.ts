@@ -1,27 +1,29 @@
-import { Injectable } from '@angular/core';
-import { ActivatedRouteSnapshot, CanActivate, Router, RouterStateSnapshot } from '@angular/router';
+import { Injectable, inject } from '@angular/core';
+import { ActivatedRouteSnapshot, CanActivate, CanActivateFn, Router, RouterStateSnapshot } from '@angular/router';
 import { AuthService } from '../service/auth.service';
 
 @Injectable({
-  providedIn: 'root'
+    providedIn: "root"
 })
-export class AuthGuard implements CanActivate {
+class AuthGuard {
 
-  constructor(private auth: AuthService,
-              private router: Router) {}
+    constructor(private auth: AuthService,
+        private router: Router) { }
 
-  canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): boolean {
-    const token = this.auth.getToken();
-    if (token) {
-      return true;
-    } else {
-      this.router.navigateByUrl('/auth/login');
-      return false;
+    canActivateFacesnaps(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): boolean {
+        const token = this.auth.getToken();
+        if (token) {
+            return true;
+        } else {
+            this.router.navigateByUrl('/auth/login');
+            return false;
+        }
     }
-  }
 }
 
-// const canActivateFacesnaps: CanActivateFn =
-//     (route: ActivatedRouteSnapshot, state: RouterStateSnapshot) => {
-//         return inject(AuthGuard).canActivateFacesnaps(route, state);
-//     };
+export const canActivateFacesnaps: CanActivateFn =
+    (route: ActivatedRouteSnapshot, state: RouterStateSnapshot) => {
+
+        return inject(AuthGuard).canActivateFacesnaps(route, state);
+
+    };
